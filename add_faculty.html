@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Add Faculty</title>
+
+</head>
+
+<body>
+
+<h1>Add Faculty</h1>
+
+<form method="POST">
+
+Faculty Name
+
+<br>
+
+<input type="text" name="faculty_name" required>
+
+<br><br>
+
+Department
+
+<br>
+
+<select name="department">
+
+{% for department in departments %}
+
+<option value="{{ department[0] }}">
+
+{{ department[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Qualification
+
+<br>
+
+<input type="text" name="qualification">
+
+<br><br>
+
+Experience (Years)
+
+<br>
+
+<input type="number" name="experience">
+
+<br><br>
+
+Mobile
+
+<br>
+
+<input type="text" name="mobile">
+
+<br><br>
+
+Email
+
+<br>
+
+<input type="email" name="email">
+
+<br><br>
+
+<button type="submit">
+
+Save Faculty
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/faculty">
+
+Back
+
+</a>
+
+</body>
+
+</html>

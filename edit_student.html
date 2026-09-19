@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Student</title>
+
+
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Edit Student</h1>
+
+<form method="POST">
+
+Student Name
+
+<br>
+
+<input
+type="text"
+name="student_name"
+value="{{ student[1] }}"
+required>
+
+<br><br>
+
+Gender
+
+<br>
+
+<select name="gender">
+
+<option {% if student[2]=='Male' %}selected{% endif %}>Male</option>
+
+<option {% if student[2]=='Female' %}selected{% endif %}>Female</option>
+
+</select>
+
+<br><br>
+
+DOB
+
+<br>
+
+<input
+type="date"
+name="dob"
+value="{{ student[3] }}">
+
+<br><br>
+
+Mobile
+
+<br>
+
+<input
+type="text"
+name="mobile"
+value="{{ student[4] }}">
+
+<br><br>
+
+Email
+
+<br>
+
+<input
+type="email"
+name="email"
+value="{{ student[5] }}">
+
+<br><br>
+
+Address
+
+<br>
+
+<textarea name="address">{{ student[6] }}</textarea>
+
+<br><br>
+
+Department
+
+<br>
+
+<select name="department">
+
+{% for department in departments %}
+
+<option
+value="{{ department[0] }}"
+{% if department[0]==student[7] %}selected{% endif %}>
+
+{{ department[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Semester
+
+<br>
+
+<input
+type="number"
+name="semester"
+value="{{ student[8] }}">
+
+<br><br>
+
+<button type="submit">
+
+Update Student
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/students">
+
+Back
+
+</a>
+
+</body>
+
+</html>

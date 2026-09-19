@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Add Subject</title>
+</head>
+
+<body>
+
+<h1>Add Subject</h1>
+
+<form method="POST">
+
+Subject Code
+
+<br>
+
+<input
+type="text"
+name="subject_code"
+required>
+
+<br><br>
+
+Subject Name
+
+<br>
+
+<input
+type="text"
+name="subject_name"
+required>
+
+<br><br>
+
+Department
+
+<br>
+
+<select name="department">
+
+{% for department in departments %}
+
+<option value="{{ department[0] }}">
+
+{{ department[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Semester
+
+<br>
+
+<input
+type="number"
+name="semester"
+required>
+
+<br><br>
+
+Faculty
+
+<br>
+
+<select name="faculty">
+
+{% for f in faculty %}
+
+<option value="{{ f[0] }}">
+
+{{ f[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Save Subject
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/subjects">Back</a>
+
+</body>
+
+</html>

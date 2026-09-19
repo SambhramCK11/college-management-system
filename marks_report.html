@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Marks Report</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Marks Report</h1>
+<form action="/search_marks">
+
+<input
+type="text"
+name="search"
+placeholder="Student or Subject">
+
+<button>
+
+Search
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/marks">Add Marks</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>ID</th>
+<th>Student</th>
+<th>Subject</th>
+<th>Internal</th>
+<th>External</th>
+<th>Total</th>
+<th>Percentage</th>
+<th>Grade</th>
+
+</tr>
+
+{% for row in records %}
+
+<tr>
+
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+<td>{{ row[4] }}</td>
+<td>{{ row[5] }}</td>
+<td>{{ row[6] }}%</td>
+<td>{{ row[7] }}</td>
+<td>
+
+<a href="/edit_marks/{{ row[0] }}">
+
+Edit
+
+</a>
+
+|
+
+<a href="/delete_marks/{{ row[0] }}">
+
+Delete
+
+</a>
+
+|
+
+<a href="/student_result/{{ row[0] }}">
+
+Result
+
+</a>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

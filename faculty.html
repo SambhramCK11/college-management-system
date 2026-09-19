@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Faculty</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Faculty Management</h1>
+
+<a href="/dashboard">Dashboard</a>
+
+|
+
+<a href="/add_faculty">
+
+Add Faculty
+
+</a>
+<br><br>
+
+<form action="/search_faculty" method="GET">
+
+<input
+type="text"
+name="search"
+placeholder="Search by ID, Name or Mobile">
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+<br>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Qualification</th>
+
+<th>Experience</th>
+
+<th>Mobile</th>
+
+<th>Email</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for faculty in faculty %}
+
+<tr>
+
+<td>{{ faculty[0] }}</td>
+
+<td>{{ faculty[1] }}</td>
+
+<td>{{ faculty[2] }}</td>
+
+<td>{{ faculty[3] }}</td>
+
+<td>{{ faculty[4] }}</td>
+
+<td>{{ faculty[5] }}</td>
+
+<td>{{ faculty[6] }}</td>
+
+<td>
+
+<a href="/edit_faculty/{{ faculty[0] }}">
+
+Edit
+
+</a>
+
+|
+
+<a href="/delete_faculty/{{ faculty[0] }}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

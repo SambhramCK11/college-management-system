@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Add Student</title>
+
+</head>
+
+<body>
+
+<h1>Add Student</h1>
+
+<form method="POST">
+
+Student Name
+
+<br>
+
+<input type="text" name="student_name" required>
+
+<br><br>
+
+Gender
+
+<br>
+
+<select name="gender">
+
+<option>Male</option>
+
+<option>Female</option>
+
+</select>
+
+<br><br>
+
+Date Of Birth
+
+<br>
+
+<input type="date" name="dob">
+
+<br><br>
+
+Mobile
+
+<br>
+
+<input type="text" name="mobile">
+
+<br><br>
+
+Email
+
+<br>
+
+<input type="email" name="email">
+
+<br><br>
+
+Address
+
+<br>
+
+<textarea name="address"></textarea>
+
+<br><br>
+
+Department
+
+<br>
+
+<select name="department">
+
+{% for department in departments %}
+
+<option value="{{ department[0] }}">
+
+{{ department[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Semester
+
+<br>
+
+<input type="number" name="semester">
+
+<br><br>
+
+<button type="submit">
+
+Save Student
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/students">
+
+Back
+
+</a>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Subject</title>
+</head>
+
+<body>
+
+<h1>Edit Subject</h1>
+
+<form method="POST">
+
+Subject Code<br>
+
+<input
+type="text"
+name="subject_code"
+value="{{ subject[1] }}"
+required>
+
+<br><br>
+
+Subject Name<br>
+
+<input
+type="text"
+name="subject_name"
+value="{{ subject[2] }}"
+required>
+
+<br><br>
+
+Department<br>
+
+<select name="department">
+
+{% for department in departments %}
+
+<option
+value="{{ department[0] }}"
+{% if department[0]==subject[3] %}selected{% endif %}>
+
+{{ department[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Semester<br>
+
+<input
+type="number"
+name="semester"
+value="{{ subject[4] }}">
+
+<br><br>
+
+Faculty<br>
+
+<select name="faculty">
+
+{% for f in faculty %}
+
+<option
+value="{{ f[0] }}"
+{% if f[0]==subject[5] %}selected{% endif %}>
+
+{{ f[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<button type="submit">
+
+Update Subject
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/subjects">
+
+Back
+
+</a>
+
+</body>
+
+</html>

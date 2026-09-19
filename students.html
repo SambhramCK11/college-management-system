@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Students</title>
+
+</head>
+
+<body>
+
+<h1>Student Management</h1>
+
+<a href="/dashboard">Dashboard</a>
+
+|
+
+<a href="/add_student">
+
+Add Student
+
+</a>
+<br><br>
+
+<form action="/search_student" method="GET">
+
+<input
+type="text"
+name="search"
+placeholder="Search by ID, Name or Mobile">
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
+
+<br>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>Gender</th>
+
+<th>Mobile</th>
+
+<th>Email</th>
+
+<th>Department</th>
+
+<th>Semester</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student[0] }}</td>
+
+<td>{{ student[1] }}</td>
+
+<td>{{ student[2] }}</td>
+
+<td>{{ student[3] }}</td>
+
+<td>{{ student[4] }}</td>
+
+<td>{{ student[5] }}</td>
+
+<td>{{ student[6] }}</td>
+
+<td>
+
+<a href="/edit_student/{{ student[0] }}">
+
+Edit
+
+</a>
+
+|
+
+<a href="/delete_student/{{ student[0] }}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

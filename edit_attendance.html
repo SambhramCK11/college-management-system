@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Attendance</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Edit Attendance</h1>
+
+<form method="POST">
+
+Student
+
+<br>
+
+<select name="student">
+
+{% for student in students %}
+
+<option value="{{ student[0] }}"
+{% if student[0]==attendance[1] %}selected{% endif %}>
+
+{{ student[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Subject
+
+<br>
+
+<select name="subject">
+
+{% for subject in subjects %}
+
+<option value="{{ subject[0] }}"
+{% if subject[0]==attendance[2] %}selected{% endif %}>
+
+{{ subject[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Date
+
+<br>
+
+<input
+type="date"
+name="date"
+value="{{ attendance[3] }}">
+
+<br><br>
+
+Status
+
+<br>
+
+<select name="status">
+
+<option {% if attendance[4]=='Present' %}selected{% endif %}>Present</option>
+
+<option {% if attendance[4]=='Absent' %}selected{% endif %}>Absent</option>
+
+</select>
+
+<br><br>
+
+<button>
+
+Update Attendance
+
+</button>
+
+</form>
+
+</body>
+
+</html>

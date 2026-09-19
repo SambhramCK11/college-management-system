@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>College Management System</h1>
+
+<h2>Admin Dashboard</h2>
+
+<table border="1" cellpadding="15">
+
+<tr>
+    <th>Total Students</th>
+    <td>{{ total_students }}</td>
+</tr>
+
+<tr>
+    <th>Total Faculty</th>
+    <td>{{ total_faculty }}</td>
+</tr>
+
+<tr>
+    <th>Total Departments</th>
+    <td>{{ total_departments }}</td>
+</tr>
+
+<tr>
+    <th>Total Subjects</th>
+    <td>{{ total_subjects }}</td>
+</tr>
+
+<tr>
+    <th>Today's Attendance</th>
+    <td>{{ today_attendance }}</td>
+</tr>
+
+<tr>
+    <th>Pending Fee Records</th>
+    <td>{{ pending_fees }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<h2>Modules</h2>
+
+<ul>
+<table>
+
+<tr>
+
+<th>Module</th>
+
+<th>Open</th>
+
+</tr>
+
+<tr>
+
+<td>Department Management</td>
+
+<td><a href="/departments">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Student Management</td>
+
+<td><a href="/students">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Faculty Management</td>
+
+<td><a href="/faculty">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Subject Management</td>
+
+<td><a href="/subjects">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Attendance</td>
+
+<td><a href="/attendance">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Marks</td>
+
+<td><a href="/marks">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Fee Management</td>
+
+<td><a href="/fees">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Attendance Report</td>
+
+<td><a href="/attendance_report">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Marks Report</td>
+
+<td><a href="/marks_report">Open</a></td>
+
+</tr>
+
+<tr>
+
+<td>Fee Report</td>
+
+<td><a href="/fees_report">Open</a></td>
+
+</tr>
+
+</table>
+
+</ul>
+
+<br>
+
+<a href="/logout">Logout</a>
+
+</body>
+
+</html>OCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+</head>
+
+<body>
+
+<h1>College Management System</h1>
+
+<hr>
+
+<h2>Dashboard</h2>
+
+<h3>Total Students : {{ total_students }}</h3>
+
+<h3>Total Faculty : {{ total_faculty }}</h3>
+
+<h3>Total Departments : {{ total_departments }}</h3>
+
+<h3>Total Subjects : {{ total_subjects }}</h3>
+
+<hr>
+
+<h2>Modules</h2>
+<ul>
+
+<li><a href="/departments">Department Management</a></li>
+
+<li><a href="/students">Student Management</a></li>
+
+<li><a href="/faculty">Faculty Management</a></li>
+<li><a href="/subjects">Subject Management</a></li>
+<li><a href="/attendance">Attendance Management</a></li>
+<li><a href="/marks">Marks Management</a></li>
+<li><a href="/fees">Fee Management</a></li>
+</ul>
+
+<hr>
+
+<a href="/logout">Logout</a>
+
+</body>
+
+</html>DOCTYPE html>
+<html>
+<head>
+
+<title>Dashboard</title>
+
+</head>
+
+<body>
+
+<h1>
+
+Welcome {{ session['username'] }}
+
+</h1>
+
+<p>
+
+You have successfully logged in.
+
+</p>
+
+<a href="/logout">
+
+Logout
+
+</a>
+
+</body>
+
+</html>

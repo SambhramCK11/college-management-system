@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Fee Management</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Fee Management</h1>
+
+<form method="POST">
+
+Student
+
+<br>
+
+<select name="student">
+
+{% for student in students %}
+
+<option value="{{ student[0] }}">
+
+{{ student[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Total Fee
+
+<br>
+
+<label>Fee Amount</label>
+
+<input
+    type="number"
+    name="fee_amount"
+    step="0.01"
+    required>
+
+<br><br>
+
+Paid Amount
+
+<br>
+
+<input
+type="number"
+name="paid_amount"
+required>
+
+<br><br>
+
+Payment Date
+
+<br>
+
+<input
+type="date"
+name="payment_date"
+required>
+
+<br><br>
+
+<button>
+
+Save Fee
+
+</button>
+
+</form>
+
+</body>
+
+</html>

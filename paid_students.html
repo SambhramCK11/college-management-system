@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Paid Students</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Paid Students</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>Student</th>
+<th>Total Fee</th>
+<th>Paid Amount</th>
+<th>Payment Date</th>
+
+</tr>
+
+{% for row in records %}
+
+<tr>
+
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

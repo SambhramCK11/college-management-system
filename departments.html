@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Departments</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Department Management</h1>
+
+<a href="/dashboard">Dashboard</a>
+
+|
+
+<a href="/add_department">Add Department</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>ID</th>
+
+<th>Department</th>
+
+<th>HOD</th>
+
+<th>Actions</th>
+
+</tr>
+
+{% for department in departments %}
+
+<tr>
+
+<td>{{ department[0] }}</td>
+
+<td>{{ department[1] }}</td>
+
+<td>{{ department[2] }}</td>
+
+<td>
+
+<a href="/edit_department/{{ department[0] }}">Edit</a>
+
+|
+
+<a href="/delete_department/{{ department[0] }}">Delete</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

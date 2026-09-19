@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Department</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Edit Department</h1>
+
+<form method="POST">
+
+Department Name
+
+<br>
+
+<input
+type="text"
+name="department_name"
+value="{{ department[1] }}"
+required>
+
+<br><br>
+
+HOD Name
+
+<br>
+
+<input
+type="text"
+name="hod_name"
+value="{{ department[2] }}"
+required>
+
+<br><br>
+
+<button type="submit">
+
+Update
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/departments">
+
+Back
+
+</a>
+
+</body>
+
+</html>

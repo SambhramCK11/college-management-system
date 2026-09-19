@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Attendance Report</title>
+
+</head>
+
+<body>
+
+<h1>Attendance Report</h1>
+<form action="/search_attendance">
+
+<input
+type="text"
+name="search"
+placeholder="Student or Subject">
+
+<button>
+
+Search
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/attendance">
+
+Mark Attendance
+
+</a>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+<th>ID</th>
+
+<th>Student</th>
+
+<th>Subject</th>
+
+<th>Date</th>
+
+<th>Status</th>
+
+</tr>
+
+{% for row in records %}
+
+<tr>
+
+<td>{{ row[0] }}</td>
+
+<td>{{ row[1] }}</td>
+
+<td>{{ row[2] }}</td>
+
+<td>{{ row[3] }}</td>
+
+<td>{{ row[4] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

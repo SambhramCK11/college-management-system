@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Student Result</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Student Result</h1>
+
+<table border="1" cellpadding="10">
+
+<tr><th>Student</th><td>{{ result[0] }}</td></tr>
+
+<tr><th>Subject</th><td>{{ result[1] }}</td></tr>
+
+<tr><th>Internal</th><td>{{ result[2] }}</td></tr>
+
+<tr><th>External</th><td>{{ result[3] }}</td></tr>
+
+<tr><th>Total</th><td>{{ result[4] }}</td></tr>
+
+<tr><th>Percentage</th><td>{{ result[5] }}%</td></tr>
+
+<tr><th>Grade</th><td>{{ result[6] }}</td></tr>
+
+</table>
+
+<br>
+
+<a href="/marks_report">Back</a>
+
+</body>
+
+</html>

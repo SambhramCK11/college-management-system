@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Marks Management</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Marks Management</h1>
+
+<form method="POST">
+
+Student
+
+<br>
+
+<select name="student">
+
+{% for student in students %}
+
+<option value="{{ student[0] }}">
+
+{{ student[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Subject
+
+<br>
+
+<select name="subject">
+
+{% for subject in subjects %}
+
+<option value="{{ subject[0] }}">
+
+{{ subject[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Internal Marks
+
+<br>
+
+<input
+type="number"
+name="internal"
+min="0"
+max="40"
+required>
+
+<br><br>
+
+External Marks
+
+<br>
+
+<input
+type="number"
+name="external"
+min="0"
+max="60"
+required>
+
+<br><br>
+
+<button>
+
+Save Marks
+
+</button>
+
+</form>
+
+</body>
+
+</html>

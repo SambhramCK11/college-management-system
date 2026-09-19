@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Faculty</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Edit Faculty</h1>
+
+<form method="POST">
+
+Faculty Name<br>
+
+<input
+type="text"
+name="faculty_name"
+value="{{ faculty[1] }}"
+required>
+
+<br><br>
+
+Department<br>
+
+<select name="department">
+
+{% for department in departments %}
+
+<option
+value="{{ department[0] }}"
+{% if department[0] == faculty[2] %}selected{% endif %}>
+
+{{ department[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Qualification<br>
+
+<input
+type="text"
+name="qualification"
+value="{{ faculty[3] }}">
+
+<br><br>
+
+Experience<br>
+
+<input
+type="number"
+name="experience"
+value="{{ faculty[4] }}">
+
+<br><br>
+
+Mobile<br>
+
+<input
+type="text"
+name="mobile"
+value="{{ faculty[5] }}">
+
+<br><br>
+
+Email<br>
+
+<input
+type="email"
+name="email"
+value="{{ faculty[6] }}">
+
+<br><br>
+
+<button type="submit">
+
+Update Faculty
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/faculty">Back</a>
+
+</body>
+</html>

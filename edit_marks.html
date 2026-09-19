@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Edit Marks</title>
+<link
+rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<h1>Edit Marks</h1>
+
+<form method="POST">
+
+Student
+
+<br>
+
+<select name="student">
+
+{% for s in students %}
+
+<option value="{{ s[0] }}"
+{% if s[0]==mark[1] %}selected{% endif %}>
+
+{{ s[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Subject
+
+<br>
+
+<select name="subject">
+
+{% for sub in subjects %}
+
+<option value="{{ sub[0] }}"
+{% if sub[0]==mark[2] %}selected{% endif %}>
+
+{{ sub[1] }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+Internal
+
+<br>
+
+<input
+type="number"
+name="internal"
+value="{{ mark[3] }}"
+min="0"
+max="40">
+
+<br><br>
+
+External
+
+<br>
+
+<input
+type="number"
+name="external"
+value="{{ mark[4] }}"
+min="0"
+max="60">
+
+<br><br>
+
+<button>
+
+Update Marks
+
+</button>
+
+</form>
+
+</body>
+
+</html>
+
