@@ -1,0 +1,20 @@
+{
+  "name": "college-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "College management system — Cloudflare Worker on Neon Postgres, rendering the same Jinja templates as the Flask app.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:seed": "node scripts/seed.mjs",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.135.0"
+  }
+}
