@@ -1,0 +1,8 @@
+# Copy to .dev.vars (git-ignored) for `wrangler dev` and the db:* scripts.
+
+# Neon pooled connection string — create a free project at https://neon.tech.
+# The pooled host contains "-pooler"; use it so Neon's compute can suspend.
+DATABASE_URL=postgresql://user:password@ep-xxx-pooler.region.aws.neon.tech/neondb?sslmode=require
+
+# Signs the session cookie. Generate one with: openssl rand -hex 32
+SESSION_SECRET=replace-with-a-long-random-string
