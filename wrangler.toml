@@ -22,11 +22,9 @@ compatibility_flags = ["nodejs_compat"]
 directory = "./public"
 binding = "ASSETS"
 
-# The Jinja templates are bundled as text modules so worker/views.mjs can import
-# them. They are the same files Flask renders from templates/.
-[[rules]]
-type = "Text"
-globs = ["**/*.html"]
+# worker/views.mjs imports the Jinja templates from templates/ as text modules.
+# Wrangler's default module rules already treat **/*.html as Text, so no
+# explicit [[rules]] block is needed — adding one shadows the default and warns.
 
 [observability]
 enabled = true

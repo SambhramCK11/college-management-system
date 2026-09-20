@@ -1,0 +1,263 @@
+[
+  {
+    "rule": "/",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/add_department",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/add_faculty",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/add_student",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/add_subject",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/attendance",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/attendance_report",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/dashboard",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_attendance/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_department/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_faculty/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_fee/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_marks/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_student/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/delete_subject/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/departments",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/edit_attendance/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/edit_department/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/edit_faculty/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/edit_fee/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/edit_marks/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/edit_student/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/edit_subject/<int:id>",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/faculty",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/fees",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/fees_report",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/logout",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/marks",
+    "methods": [
+      "GET",
+      "POST"
+    ]
+  },
+  {
+    "rule": "/marks_report",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/paid_students",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/pending_students",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/search_attendance",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/search_faculty",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/search_fee",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/search_marks",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/search_student",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/search_subject",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/student_attendance",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/student_result/<int:id>",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/students",
+    "methods": [
+      "GET"
+    ]
+  },
+  {
+    "rule": "/subjects",
+    "methods": [
+      "GET"
+    ]
+  }
+]
