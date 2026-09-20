@@ -104,9 +104,12 @@ const listSubjectNames = (sql) =>
 /* Auth                                                               */
 /* ------------------------------------------------------------------ */
 
-async function login({ request, sql, env }) {
+async function login(context) {
+  const { request } = context;
   if (request.method === 'GET') return renderTemplate('login1.html', {});
 
+  // Reading these getters is what raises the 503 when a secret is unset.
+  const { sql, secret } = context;
   const form = await formData(request);
   const username = form.username ?? '';
   const password = form.password ?? '';
@@ -118,7 +121,7 @@ async function login({ request, sql, env }) {
   );
 
   if (user && (await checkPasswordHash(user[1], password))) {
-    const cookie = await createSession(env.SESSION_SECRET, username);
+    const cookie = await createSession(secret, username);
     return redirect('/dashboard', { 'set-cookie': sessionCookie(cookie) });
   }
 
@@ -834,32 +837,45 @@ export default {
       if (!methods.includes(request.method)) continue;
 
       try {
-        if (!env.DATABASE_URL) {
-          throw new HttpError(
-            503,
-            'DATABASE_URL is not configured. Set it with: npx wrangler secret put DATABASE_URL'
-          );
-        }
-        if (!env.SESSION_SECRET) {
-          throw new HttpError(
-            503,
-            'SESSION_SECRET is not configured. Set it with: npx wrangler secret put SESSION_SECRET'
-          );
-        }
-
-        const username = await readSession(env.SESSION_SECRET, request.headers.get('cookie'));
-        // Unlike the Flask app, which leaves every page open, the deployed
-        // Worker sends anonymous callers back to the login form.
-        if (!isPublic && !username) return redirect('/');
-
-        return await handler({
+        // Both secrets are resolved lazily, so a GET of the login form renders
+        // on a fresh checkout with nothing configured and the 503 only appears
+        // on a request that genuinely needs the missing value.
+        let connection;
+        const context = {
           request,
           env,
           url,
-          username,
-          sql: connect(env.DATABASE_URL),
+          username: null,
           id: match[1] !== undefined ? pathId(decodeURIComponent(match[1])) : undefined,
-        });
+          get sql() {
+            if (!env.DATABASE_URL) {
+              throw new HttpError(
+                503,
+                'DATABASE_URL is not configured. Set it with: npx wrangler secret put DATABASE_URL'
+              );
+            }
+            connection ??= connect(env.DATABASE_URL);
+            return connection;
+          },
+          get secret() {
+            if (!env.SESSION_SECRET) {
+              throw new HttpError(
+                503,
+                'SESSION_SECRET is not configured. Set it with: npx wrangler secret put SESSION_SECRET'
+              );
+            }
+            return env.SESSION_SECRET;
+          },
+        };
+
+        // Unlike the Flask app, which leaves every page open, the deployed
+        // Worker sends anonymous callers back to the login form.
+        if (!isPublic) {
+          context.username = await readSession(context.secret, request.headers.get('cookie'));
+          if (!context.username) return redirect('/');
+        }
+
+        return await handler(context);
       } catch (error) {
         if (error instanceof HttpError) {
           if (error.status === 404) return renderTemplate('404.html', {}, 404);
