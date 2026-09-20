@@ -1,0 +1,35 @@
+# Cloudflare Worker — the college management system on Neon Postgres.
+#
+# Free tiers used, no card required on either:
+#   Workers   100,000 requests/day, 10 ms CPU per request
+#   Assets    unmetered, not billed, not counted against the request limit
+#   Neon      0.5 GB storage, compute suspends when idle
+#
+# Setup:
+#   npx wrangler login
+#   npx wrangler secret put DATABASE_URL    # Neon pooled connection string
+#   npx wrangler secret put SESSION_SECRET  # any long random string
+#   npm run db:migrate && npm run db:seed
+#   npm run deploy
+
+name = "college-management-system"
+main = "worker/index.mjs"
+compatibility_date = "2026-09-20"
+# node:crypto, for the scrypt branch of Werkzeug password verification.
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# The Jinja templates are bundled as text modules so worker/views.mjs can import
+# them. They are the same files Flask renders from templates/.
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+
+[observability]
+enabled = true
+
+# DATABASE_URL and SESSION_SECRET are secrets, set with `wrangler secret put`,
+# so credentials never land in git.
