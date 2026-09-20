@@ -1,0 +1,203 @@
+{
+  "_comment": [
+    "Shared render context for the differential template test.",
+    "numeric(p,s) columns are strings because that is what both drivers return:",
+    "the Neon driver yields '85.00' and psycopg2 a Decimal that renders the same.",
+    "_overrides holds per-template contexts for names whose shape differs between",
+    "templates - faculty is a list of rows in faculty.html but the single row",
+    "being edited in edit_faculty.html."
+  ],
+  "_default": {
+    "students": [
+      [
+        1,
+        "Asha Rao",
+        "Female",
+        "9990000001",
+        "asha@example.com",
+        "CSE",
+        3
+      ],
+      [
+        2,
+        "Bob <script>",
+        "Male",
+        "9990000002",
+        "bob&co@example.com",
+        "ECE",
+        5
+      ]
+    ],
+    "departments": [
+      [
+        1,
+        "CSE",
+        "Dr. Iyer"
+      ],
+      [
+        2,
+        "ECE",
+        "Dr. Rao & Sons"
+      ]
+    ],
+    "faculty": [
+      [
+        1,
+        "Dr. Iyer",
+        1,
+        "PhD",
+        12,
+        "9998887777",
+        "iyer@example.com"
+      ],
+      [
+        2,
+        "Dr. \"Rao\"",
+        2,
+        "ME",
+        8,
+        "9998887778",
+        "rao@example.com"
+      ]
+    ],
+    "subjects": [
+      [
+        1,
+        "CS301",
+        "Algorithms",
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        "EC201",
+        "Signals & Systems",
+        2,
+        5,
+        2
+      ]
+    ],
+    "records": [
+      [
+        1,
+        "Asha Rao",
+        "CS301",
+        "25.00",
+        "60.00",
+        "85.00",
+        "85.00",
+        "A"
+      ],
+      [
+        2,
+        "Bob <script>",
+        "EC201",
+        "18.00",
+        "44.00",
+        "62.00",
+        "62.00",
+        "B"
+      ]
+    ],
+    "report": [
+      [
+        1,
+        "Asha Rao",
+        "CS301",
+        "2026-09-20",
+        "Present"
+      ],
+      [
+        2,
+        "Bob",
+        "EC201",
+        "2026-09-19",
+        "Absent"
+      ]
+    ],
+    "result": [
+      1,
+      "Asha Rao",
+      "CS301",
+      "25.00",
+      "60.00",
+      "85.00",
+      "85.00",
+      "A"
+    ],
+    "student": [
+      1,
+      "Asha Rao",
+      "Female",
+      "2005-01-02",
+      "9990000001",
+      "asha@example.com",
+      "Addr & Co <1>",
+      1,
+      3
+    ],
+    "department": [
+      1,
+      "CSE",
+      "Dr. Iyer"
+    ],
+    "subject": [
+      1,
+      "CS301",
+      "Algorithms",
+      1,
+      3,
+      1
+    ],
+    "attendance": [
+      1,
+      1,
+      1,
+      "2026-09-20",
+      "Present"
+    ],
+    "mark": [
+      1,
+      1,
+      1,
+      "25.00",
+      "60.00",
+      "85.00",
+      "85.00",
+      "A"
+    ],
+    "fee": [
+      1,
+      1,
+      "50000.00",
+      "30000.00",
+      "20000.00",
+      "2026-09-01"
+    ],
+    "error": "Invalid Username & Password <x>",
+    "username": "admin",
+    "session": {
+      "username": "admin"
+    },
+    "total_students": 2,
+    "total_faculty": 2,
+    "total_departments": 2,
+    "total_subjects": 2,
+    "today_attendance": 1,
+    "pending_fees": 1
+  },
+  "_overrides": {
+    "edit_faculty.html": {
+      "faculty": [
+        2,
+        "Dr. \"Rao\"",
+        2,
+        "ME",
+        8,
+        "9998887778",
+        "rao@example.com"
+      ]
+    }
+  }
+}
