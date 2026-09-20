@@ -10,10 +10,24 @@ from routes.attendance import attendance_bp
 from routes.marks import marks_bp
 from routes.fees import fees_bp
 import logging
+import os
 
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# templates/ and public/static/ sit above this package because the Cloudflare
+# Worker in ../worker renders the same templates and serves the same stylesheet.
+# One copy, two runtimes.
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, "..", "templates"),
+    static_folder=os.path.join(BASE_DIR, "..", "public", "static"),
+)
+
+# Anchor the log path to this file so the app can be started from any directory.
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
 logging.basicConfig(
-    filename="logs/app.log",
+    filename=os.path.join(LOG_DIR, "app.log"),
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
